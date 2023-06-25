@@ -1,3 +1,5 @@
+using System;
+using HotChocolate;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+builder.Services.AddGraphQLServer().AddQueryType<Query>()
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -16,7 +19,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
+app.MapGraphQL();
 
 app.MapControllerRoute(
     name: "default",
