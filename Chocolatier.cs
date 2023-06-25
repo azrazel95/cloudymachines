@@ -6,7 +6,7 @@ namespace cloudymachines
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class Chocolatier : ControllerBase
     {
         // GET: api/<ValuesController>
         [HttpGet]
